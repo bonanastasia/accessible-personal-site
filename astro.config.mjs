@@ -6,10 +6,14 @@ import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'url'
 import path from 'path'
 
+import { defineConfig } from 'astro/config'
+
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
-  site: 'https://accessible-astro-starter.incluud.dev',
+  site: 'https://bonanastasia.github.io/',
+  base: '/accessible-personal-site',
+  // site: 'https://accessible-astro-starter.incluud.dev',
   integrations: [mdx(), icon(), compress()],
   vite: {
     css: {
