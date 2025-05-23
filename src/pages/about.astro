@@ -1,0 +1,91 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro'
+import PageHeader from '@components/PageHeader.astro'
+import experiences from "../collections/experiences.json";
+import AboutExperience from "../components/about-experience.astro";
+---
+
+<DefaultLayout title="About Me">
+  <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
+    <PageHeader
+      title="About Me"
+      subtitle="Hello 👋 I'm a technical author, professor, and data reporter. I'm passionate about making data and technology accessible and approachable."
+    />
+    <section class="narrow container my-16">
+    <div class="space-content">
+      <h2>Bio</h2>
+    <p>Anastasia Goodwin is a technical author and award-winning data reporter. Her skills include authoring technical documentation, textbook authoring, data wrangling, data analysis, creating visualizations, submitting FOIA requests and crafting data-driven stories. She has proven expertise in the education space through her work as senior data reporter embedded with the Houston Chronicle's education team and in her role as an adjunct professor in the Moody School of Journalism and Media at the University of Texas at Austin.</p> <br>
+ <p>
+      Anastasia enjoys teaching data journalism and discussing how documentation can improve transparency and accessibility. She has experience as a facilitator of newsroom-wide trainings and at conferences like NICAR.
+</p>
+<br>
+ <p>
+      In addition to her data reporting work, she also enjoys documenting processes and authoring tutorials for other reporters in the newsroom. 
+</p>
+</section>
+    <section class="narrow container my-16">
+    <h2>Experience</h2>
+
+    <div class="container">
+      {
+        // Map through the experiences and render the AboutExperience component for each
+        // experience. The key is set to the index of the experience in the array.
+      }
+      {
+        experiences.map((experience) => {
+          return (
+            <div class="pb-10 border-l border-gray-200 last:border-l-0 dark:border-neutral-700">
+              <AboutExperience
+                dates={experience.dates}
+                role={experience.role}
+                company={experience.company}
+                description={experience.description}
+                logo={experience.logo}
+              />
+            </div>
+          )
+        })
+      }
+    </div>
+</section>
+    <section class="narrow container my-16">
+    <h2>Technical Skills</h2>
+        <div class="container flex flex-col gap-4 md:flex-row md:justify-between">
+          <div class="flex flex-col gap-4">
+            <h3 class="text-2xl font-bold">Technical Skills</h3>
+            <ul class="flex flex-col gap-2">
+              <li>Python</li>
+              <li>SQL</li>
+              <li>R</li>
+              <li>HTML/CSS</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="text-2xl font-bold">Tools & Technologies</h3>
+            <ul class="flex flex-col gap-2">
+              <li>Git</li>
+              <li>Jupyter Notebooks</li>
+              <li>Tableau</li>
+              <li>Power BI</li>
+              <li>Excel</li>
+            </ul>
+          </div>
+        </div>
+    </section>
+    <section class="narrow container my-16">
+    <h2 class="mt-5 mb-2 text-2xl font-bold lg:mt-10 sm:mt-6 dark:text-neutral-200">Follow my work</h2>
+    <p
+      class="text-sm leading-6 text-gray-600 dark:text-neutral-400 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg"
+    >
+      If you want to stay up to date with my work be sure to <a
+        href="https://x.com/agoodwin_news"
+        target="_blank"
+        class="text-indigo-600 underline">follow me on twitter</a
+      > and <a
+        href="https://x.com/agoodwin_news"
+        target="_blank"
+        class="text-indigo-600 underline">Github</a>.
+    </p>
+  </section>
+</DefaultLayout>

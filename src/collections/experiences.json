@@ -1,0 +1,28 @@
+[
+	{
+		"dates": "May 2022 · Present",
+		"role": "Senior Data Reporter, Education",
+		"company": "The Houston Chronicle",
+		"logo": "/experiences/hc-logo.png"
+	},
+	{
+		"dates": "August 2023 · Present",
+		"role": "Adjuct Professor, Moody School of Journalism and Media",
+		"company": "The University of Texas at Austin",
+		"logo": "/experiences/UTSeal.png"
+	},
+	{
+		"dates": "February 2019 · Oct 2020 ",
+		"role": "UX/UI Designer",
+		"company": "Help.com",
+		"description": "",
+		"logo": "/experiences/help-logo.png"
+	},
+	{
+		"dates": "August 2018 · February 2019",
+		"role": "Web Developer",
+		"company": "Affinipay",
+		"description": "",
+		"logo": "/experiences/affinipay.png"
+	}
+]
