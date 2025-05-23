@@ -10,13 +10,15 @@ import { defineConfig } from 'astro/config'
 import staticAdapter from '@astrojs/static'; // Add this
 
 // https://astro.build/config
+
 export default defineConfig({
   compressHTML: true,
-  output: 'static',
-  adapter: staticAdapter(), // Add this line
-  base: '/accessible-personal-site/',
   site: 'https://bonanastasia.github.io/',
-  // site: 'https://accessible-astro-starter.incluud.dev',
+  base: '/accessible-personal-site',
+  output: 'static', // This tells Astro to build a static site
+  build: {
+    format: 'directory', // Needed for clean URLs
+  },
   integrations: [mdx(), icon(), compress()],
   vite: {
     css: {
