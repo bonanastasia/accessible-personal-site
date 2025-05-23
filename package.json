@@ -1,6 +1,6 @@
 {
   "name": "accessible-astro-starter",
-  "description": "An Accessible Starter Theme for Astro including several accessibility features and tools to help you build faster.",
+  "description": "Anastasia's personal website and portfolio built with Astro, Tailwind CSS, and accessible-astro-components.",
   "version": "4.0.0",
   "author": "Incluud",
   "license": "MIT",
