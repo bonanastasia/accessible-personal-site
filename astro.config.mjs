@@ -7,7 +7,6 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 
 import { defineConfig } from 'astro/config'
-import staticAdapter from '@astrojs/static'; // Add this
 
 // https://astro.build/config
 
