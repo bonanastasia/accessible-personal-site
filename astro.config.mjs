@@ -13,7 +13,7 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
   compressHTML: true,
   site: 'https://bonanastasia.github.io/',
-  base: '/accessible-personal-site',
+  // base: '/accessible-personal-site',
   output: 'static', // This tells Astro to build a static site
   build: {
     format: 'directory', // Needed for clean URLs
