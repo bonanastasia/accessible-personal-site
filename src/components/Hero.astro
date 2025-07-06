@@ -14,7 +14,7 @@ interface Props {
   src?: string
 }
 
-const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
+const { src = '/ana-hero-image.png' }: Props = Astro.props
 ---
 
 <section class="hero my-24">
@@ -37,7 +37,7 @@ const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
         </div>
       
       </div>
-      <!-- <Image class="hidden lg:block" src={src} alt="" decoding="async" width={800} height={600} loading="eager" /> -->
+      <Image class="hidden lg:block" src={src} alt="" decoding="async" width={800} height={600} loading="eager" />
     </div>
   </div>
 </section>

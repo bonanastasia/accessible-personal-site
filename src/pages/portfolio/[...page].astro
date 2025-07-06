@@ -7,17 +7,16 @@ import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
 // Import images directly for optimization
-import projectImage1 from '@assets/images/projects/project-image-1.png'
-import projectImage2 from '@assets/images/projects/project-image-2.png'
-import projectImage3 from '@assets/images/projects/project-image-3.png'
-import projectImage4 from '@assets/images/projects/project-image-4.png'
-import projectImage5 from '@assets/images/projects/project-image-5.png'
-import projectImage6 from '@assets/images/projects/project-image-6.png'
+import projectImage1 from '@assets/images/projects/intro-to-git-cover.png'
+import projectImage2 from '@assets/images/projects/teacher-salary-project.png'
+import projectImage3 from '@assets/images/projects/tea-ratings-FAQ.png'
+import projectImage4 from '@assets/images/projects/Principal-tracker-project.png'
+import projectImage5 from '@assets/images/projects/CAR-explainer.png'
 
 export const getStaticPaths = (async ({ paginate }) => {
   const projects = await getCollection('projects')
 
-  const projectImages = [projectImage1, projectImage2, projectImage3, projectImage4, projectImage5, projectImage6]
+  const projectImages = [projectImage1, projectImage2, projectImage3, projectImage4, projectImage5]
 
   const projectsWithImages = projects.map((project, index) => {
     return {
@@ -42,14 +41,15 @@ const totalPages = Math.ceil(page.total / page.size)
 
 <DefaultLayout
   title="Portfolio"
-  description="A showcase of projects built with Astro Content Collections, demonstrating dynamic content management."
+  description="A showcase of recent projects I've worked on, demonstrating my skills in technical content creation, data visualization, and web development."
 >
   <PageHeader
     title="Portfolio"
-    subtitle='A showcase of projects built with Astro Content Collections, demonstrating dynamic content management and organization. Learn more about <a href="https://docs.astro.build/en/guides/content-collections/">Astro Content Collections</a> in the official documentation.'
+    subtitle='A showcase of recent projects I have worked on, demonstrating my skills in technical content creation, data visualization, and web development. See more of my journalism work on my <a href="https://www.houstonchronicle.com/author/anastasia-goodwin/">Houston Chronicle author page</a>.'
     bgType="bordered"
   />
-  <section class="my-12">
+  <!-- PUT THIS BACK WHEN PROJECTS IS GOOOOOD -->
+  <!-- <section class="my-12">
     <div class="container">
       <p class="text-sm"><em>Project {page.start + 1} through {page.end + 1} of {page.total} total projects</em></p>
       <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -80,7 +80,7 @@ const totalPages = Math.ceil(page.total / page.size)
         />
       </div>
     </div>
-  </section>
+  </section> -->
 </DefaultLayout>
 
 <style lang="scss" is:global>
