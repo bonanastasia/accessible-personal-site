@@ -25,11 +25,11 @@ const { src = '/images/about-headshot.jpg' }: Props = Astro.props
 
   </section>
     <section class="container my-16">
-    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2 space-content">
+    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
       <div class="flex flex-col items-center gap-8 md:items-start">
         <Image class="hidden lg:block" src={src} alt="" decoding="async" width={800} height={600} loading="eager" />
       </div>
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col">
       <h2>Bio</h2>
       <p>Anastasia Goodwin is a technical author and award-winning data reporter. Her skills include authoring textbooks and technical documentation, data wrangling, data analysis, creating visualizations, submitting FOIA requests and crafting data-driven stories. She has proven expertise in the education space through her work as Senior Data Reporter embedded with the Houston Chronicle's education team. She has experience with hands-on instruction and curriculum development through her role as an adjunct professor in the Moody School of Journalism and Media at the University of Texas at Austin. She has also served as a facilitator for newsroom-wide data trainings and at conferences like NICAR.</p> <br />
       <p>

@@ -1,14 +1,27 @@
 [
 	{
-		"dates": "May 2022 · Present",
+		"dates": "September 2023 · September 2025",
 		"role": "Senior Data Reporter, Education",
 		"company": "The Houston Chronicle",
 		"logo": "/experiences/hc-logo.png"
 	},
 	{
-		"dates": "August 2023 · Present",
+		"dates": "May 2022 · September 2023",
+		"role": "Graphics Reporter",
+		"company": "The Houston Chronicle",
+		"logo": "/experiences/hc-logo.png"
+	},
+	{
+		"dates": "August 2023 · August 2025",
 		"role": "Adjuct Professor, Moody School of Journalism and Media",
 		"company": "The University of Texas at Austin",
+		"logo": "/experiences/UTSeal.png"
+	},
+		{
+		"dates": "June 2020 · May 2022",
+		"role": "Undergraduate Research Lead",
+		"company": "Center for Media Engagement, The University of Texas at Austin",
+		"description": "",
 		"logo": "/experiences/UTSeal.png"
 	},
 	{
@@ -24,5 +37,12 @@
 		"company": "Affinipay",
 		"description": "",
 		"logo": "/experiences/affinipay.png"
+	},
+	{
+		"dates": "October 2017 · June 2018",
+		"role": "Frontend Developer",
+		"company": "Critical Mass",
+		"description": "",
+		"logo": "/experiences/critical-mass.png"
 	}
 ]
