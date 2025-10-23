@@ -3,9 +3,9 @@
   interpolate-size: allow-keywords;
 
   // brand colors (change these to your own brand colors)
-  --brand-primary: #d648ff;
-  --brand-secondary: #00d1b7;
-  --brand-neutral: #b9bec4;
+  --brand-primary: #cd1f01;
+  --brand-secondary: #cd1f01;
+  --brand-neutral: #f9f2e6;
 
   // pallet brand
   --color-primary-100: oklch(from var(--brand-primary) 90% c h);
@@ -31,13 +31,13 @@
   --color-neutral-900: oklch(from var(--brand-neutral) 15% c h);
 
   // color scheme
-  --foreground-color: light-dark(var(--color-neutral-800), var(--color-neutral-100));
-  --background-color: light-dark(var(--color-neutral-100), var(--color-neutral-900));
+  --foreground-color: light-dark(var(--color-neutral-800), var(--color-secondary-100));
+  --background-color: light-dark(var(--color-neutral-200), var(--color-neutral-900));
   --icon-color: light-dark(var(--color-neutral-800), var(--color-neutral-100));
   --link-color: light-dark(var(--color-primary-400), var(--color-secondary-100));
-  --link-hover-color: light-dark(var(--color-primary-300), var(--color-secondary-200));
+  --link-hover-color: light-dark(var(--color-primary-300), var(--color-secondary-100));
   --border-color: light-dark(var(--color-neutral-900), var(--color-neutral-100));
-  --border-color-subtle: light-dark(var(--color-neutral-300), var(--color-neutral-800));
+  --border-color-subtle: light-dark(var(--color-neutral-500), var(--color-neutral-800));
   --text-decoration-color: light-dark(var(--color-neutral-700), var(--color-neutral-100));
   --text-decoration-color-hover: light-dark(var(--color-neutral-100), var(--color-neutral-200));
 
@@ -46,11 +46,14 @@
   --radius-large: 6px;
   --gap-default: 2rem;
   --font-measure: 70ch;
-  --font-family-default: 'Atkinson Hyperlegible', sans-serif;
-  --font-family-special: 'Atkinson Hyperlegible', sans-serif;
+  --font-family-default: 'IBM Plex Mono', monospace;
+  --font-family-special: 'Yamas', sans-serif;
+  --font-family-special-sub: 'Barro', sans-serif;
+
 
   // font families
-  --font-heading: var(--font-family-special);
+  --font-yamas: var(--font-family-special);
+  --font-barro: var(--font-family-special-sub);
   --font-body: var(--font-family-default);
 
   // font sizes
@@ -66,6 +69,8 @@
   --font-size-6: clamp(2.9863rem, 2.5323rem + 2.2696vw, 4.2913rem);
   --font-size-7: clamp(3.5836rem, 2.9667rem + 3.0674vw, 5.3544rem);
   --font-size-8: clamp(4.2999rem, 3.5601rem + 3.6935vw, 6.6856rem);
+  --font-size-9: clamp(5.1599rem, 4.2721rem + 4.4322vw, 8.3567rem);
+  --font-size-10: clamp(6.1919rem, 5.1265rem + 5.3186vw, 10.4458rem);
 
   // space
   // @link https://utopia.fyi/space/calculator?c=320,16,1.2,1240,18,1.25,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,&g=s,l,xl,12
@@ -147,4 +152,7 @@
 // dark color scheme overrides
 .darkmode {
   color-scheme: dark;
+}
+.barro-text {
+  font-family: var(--font-barro) !important;
 }

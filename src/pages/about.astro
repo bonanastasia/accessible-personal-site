@@ -3,94 +3,117 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
 import experiences from "../collections/experiences.json";
 import AboutExperience from "../components/about-experience.astro";
+import { Image } from 'astro:assets'
+``
+interface Props {
+  /**
+   * The source URL for the image
+   */
+  src?: string
+}
+
+const { src = '/images/about-headshot.jpg' }: Props = Astro.props
 ---
 
 <DefaultLayout title="About Me">
-  <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
+  <section class="relative z-20 container mx-auto my-12 px-7 lg:px-0">
     <PageHeader
-      title="About Me"
+      title="about me"
       subtitle="Hello 👋 I'm a technical author, professor, and data reporter specializing in the education space. I'm passionate about making data and technology accessible and approachable to everyone."
-    />
-    <section class="narrow container my-16">
-    <div class="space-content">
-      <h2>Bio</h2>
-    <p>Anastasia Goodwin is a technical author and award-winning data reporter. Her skills include authoring textbooks and technical documentation, data wrangling, data analysis, creating visualizations, submitting FOIA requests and crafting data-driven stories. She has proven expertise in the education space through her work as Senior Data Reporter embedded with the Houston Chronicle's education team. She has experience with hands-on instruction through her role as an adjunct professor in the Moody School of Journalism and Media at the University of Texas at Austin. She has also served as a facilitator for newsroom-wide data trainings and at conferences like NICAR.</p> <br>
- <p>
-      Anastasia enjoys teaching data journalism and discussing how documentation can improve transparency and accessibility.
-</p>
-<br>
- <p>
-      In addition to her reporting work, she also enjoys documenting processes and authoring tutorials to ensure that others can replicate her work. She has a passion for open source and open data, and she believes in the importance of making data and technology accessible to both readers and other technologists alike. 
-</p>
-</section>
-    <section class="narrow container my-16">
-    <h2>Experience</h2>
+      bgType="bordered"
+      />
 
-    <div class="container">
-      {
-        // Map through the experiences and render the AboutExperience component for each
-        // experience. The key is set to the index of the experience in the array.
-      }
-      {
-        experiences.map((experience) => {
-          return (
-            <div class="pb-10 border-l border-gray-200 last:border-l-0 dark:border-neutral-700">
-              <AboutExperience
-                dates={experience.dates}
-                role={experience.role}
-                company={experience.company}
-                description={experience.description}
-                logo={experience.logo}
-              />
-            </div>
-          )
-        })
-      }
+  </section>
+    <section class="container my-16">
+    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2 space-content">
+      <div class="flex flex-col items-center gap-8 md:items-start">
+        <Image class="hidden lg:block" src={src} alt="" decoding="async" width={800} height={600} loading="eager" />
+      </div>
+      <div class="flex flex-col gap-4">
+      <h2>Bio</h2>
+      <p>Anastasia Goodwin is a technical author and award-winning data reporter. Her skills include authoring textbooks and technical documentation, data wrangling, data analysis, creating visualizations, submitting FOIA requests and crafting data-driven stories. She has proven expertise in the education space through her work as Senior Data Reporter embedded with the Houston Chronicle's education team. She has experience with hands-on instruction through her role as an adjunct professor in the Moody School of Journalism and Media at the University of Texas at Austin. She has also served as a facilitator for newsroom-wide data trainings and at conferences like NICAR.</p> <br />
+      <p>
+        Anastasia enjoys teaching data journalism and discussing how documentation can improve transparency and accessibility.
+      </p>
+      <br />
+      <p>
+        In addition to her reporting work, she also enjoys documenting processes and authoring tutorials to ensure that others can replicate her work. She has a passion for open source and open data, and she believes in the importance of making data and technology accessible to both readers and other technologists alike.
+      </p>
+      </div>
     </div>
 </section>
-    <section class="narrow container">
-      <h2>Technical Skills</h2>
-      <div class="container grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="flex flex-col gap-4">
-          <h3 class="text-2xl font-bold">Languages &amp; Tools</h3>
-          <ul class="flex flex-col gap-2">
-            <li>R (Tidyverse)</li>
-            <li>Python</li>
-            <li>HTML/CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>QGIS</li>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>Static site generators (Astro, Jekyll)</li>
-          </ul>
-        </div>
-        <div class="flex flex-col gap-4">
-          <h3 class="text-2xl font-bold">Documentation &amp; Platforms</h3>
-          <ul class="flex flex-col gap-2">
-            <li>Markdown</li>
-            <li>Quarto</li>
-            <li>GitHub Pages</li>
-            <li>Jekyll</li>
-            <li>Notion</li>
-            <li>Airtable</li>
-            <li>Google Docs</li>
-            <li>Jira</li>
-            <li>Docs-as-Code</li>
-            <li>OpenAPI/Swagger</li>
-          </ul>
-        </div>
-        <div class="flex flex-col gap-4">
-          <h3 class="text-2xl font-bold">Visualization &amp; Design</h3>
-          <ul class="flex flex-col gap-2">
-            <li>Datawrapper</li>
-            <li>Flourish</li>
-            <li>Adobe Illustrator</li>
-          </ul>
+    <section class="container my-16 bg-bordered py-16">
+    <div class="flex flex-col gap-6">
+      <h2>Experience</h2>
+
+      <div class="container">
+        {
+          // Map through the experiences and render the AboutExperience component for each
+          // experience. The key is set to the index of the experience in the array.
+        }
+        {
+          experiences.map((experience) => {
+            return (
+              <div class="pb-10 border-l border-gray-400 last:border-l-0 dark:border-neutral-700">
+                <AboutExperience
+                  dates={experience.dates}
+                  role={experience.role}
+                  company={experience.company}
+                  description={experience.description}
+                  logo={experience.logo}
+                />
+              </div>
+            )
+          })
+        }
+      </div>
+    </div>
+</section>
+    <section class="container">
+      <div class="flex flex-col gap-6">
+        <h2>Technical Skills</h2>
+        <div class="container grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="flex flex-col gap-4">
+            <h3 class="text-2xl font-bold">Languages &amp; Tools</h3>
+            <ul class="flex flex-col gap-2">
+              <li>R (Tidyverse)</li>
+              <li>Python</li>
+              <li>HTML/CSS</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>QGIS</li>
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>Static site generators (Astro, Jekyll)</li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="text-2xl font-bold">Documentation &amp; Platforms</h3>
+            <ul class="flex flex-col gap-2">
+              <li>Markdown</li>
+              <li>Quarto</li>
+              <li>GitHub Pages</li>
+              <li>Jekyll</li>
+              <li>Notion</li>
+              <li>Airtable</li>
+              <li>Google Docs</li>
+              <li>Jira</li>
+              <li>Docs-as-Code</li>
+              <li>OpenAPI/Swagger</li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h3 class="text-2xl font-bold">Visualization &amp; Design</h3>
+            <ul class="flex flex-col gap-2">
+              <li>Datawrapper</li>
+              <li>Flourish</li>
+              <li>Adobe Illustrator</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
-    <section class="narrow container my-16">
+    <section class="container my-16">
     <h2 class="mt-5 mb-2 text-2xl font-bold lg:mt-10 sm:mt-6 dark:text-neutral-200">Follow my work</h2>
     <p
       class="text-sm leading-6 text-gray-600 dark:text-neutral-400 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg"

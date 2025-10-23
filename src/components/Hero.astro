@@ -14,25 +14,22 @@ interface Props {
   src?: string
 }
 
-const { src = '/ana-hero-image.png' }: Props = Astro.props
+const { src = '/ana-home-headshot.jpg' }: Props = Astro.props
 ---
 
 <section class="hero my-24">
   <div class="container">
     <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
       <div class="flex flex-col items-center gap-8 md:items-start">
-        <h1 class="text-center text-6xl md:text-left lg:text-8xl">
-          <slot><span class="contrast-text">Greetings!</span> I'm Ana</slot>
-        </h1>
-         <p>I'm a <span class="contrast-text">technical writer</span> and <span class="contrast-text">data journalist</span> with a passion for creating accessible and user-friendly digital experiences.</p>
+          <p class="barro-text text-3xl">Hi. Hello. How are you?</p>
+          <h1 class="contrast-text yamas-text">I'M ANA!</h1>
+         <p>I’m a data analyst, storyteller, and technical writer based in Cardiff, Wales.</p>
          <div class="flex flex-col gap-3 min-[500px]:flex-row">
-          <a class="button has-icon" href="/portfolio">
-            <Icon name="lucide:star" />
-            My projects
+          <a class="button" href="/portfolio">
+            MY WORK
           </a>
-          <a class="button has-icon color-secondary" href="/about">
-            <Icon name="lucide:bookmark" />
-            About me
+          <a class="button" href="/about">
+            ABOUT ME
           </a>
         </div>
       
@@ -51,4 +48,8 @@ const { src = '/ana-hero-image.png' }: Props = Astro.props
     color: var(--link-color);
     font-weight: 500;
   }
+  .button {
+    flex-grow: 1;
+  }
+
 </style>
