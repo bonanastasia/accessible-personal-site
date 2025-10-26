@@ -11,7 +11,11 @@ const projects = defineCollection({
     title: z.string(),
     author: z.string(),
     description: z.string(),
+    responsibilities: z.string().optional(),
     live_url: z.string().optional(),
+    company: z.string().optional(),
+    pub_date: z.string().optional(),
+    project_tags: z.string().optional(),
   }),
 })
 

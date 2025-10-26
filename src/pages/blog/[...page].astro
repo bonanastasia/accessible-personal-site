@@ -19,6 +19,9 @@ interface Post {
   body: string
   featuredImage: any // Changed to any to accommodate ImageMetadata
   shortUrl: string
+  company: string
+  date: string
+  tags: string[]
 }
 
 export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {

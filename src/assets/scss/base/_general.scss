@@ -69,6 +69,12 @@ footer a {
 }
 
 .bg-bordered {
-      border: 1px solid var(--border-color-subtle);
-      border-inline: 0;
+  border: 1px solid var(--border-color-subtle);
+  border-inline: 0;
+}
+
+.bottom-bordered {
+  border: 1px solid var(--border-color-subtle);
+  border-inline: 0;
+  border-top: 0px;
 }
