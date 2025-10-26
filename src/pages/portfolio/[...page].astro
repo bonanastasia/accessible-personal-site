@@ -70,71 +70,69 @@ const totalPages = Math.ceil(page.total / page.size)
   />
   <!-- PUT THIS BACK WHEN PROJECTS IS GOOOOOD -->
   <section class="container my-8 lg:px-0">
-    <div class="space-y-12">
-      <p class="text-sm"><em>Project {page.start + 1} through {page.end + 1} of {page.total} total projects</em></p>
-      {
-        page.data.map((project) => (
-          <article class="bottom-bordered my-8 flex flex-col gap-6 py-8 md:flex-row md:gap-8">
-            <div class="md:w-1/3">
+    <p class="text-sm"><em>Project {page.start + 1} through {page.end + 1} of {page.total} total projects</em></p>
+    {
+      page.data.map((project) => (
+        <article class="bottom-bordered flex flex-col gap-6 py-8 md:flex-row">
+          <div class="md:w-1/3">
+            <a
+              href={project.data.live_url ? project.data.live_url : '/portfolio/' + project.id}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block overflow-hidden"
+            >
+              <Image
+                src={project.featuredImage}
+                alt={`${project.data.title} project screenshot`}
+                class="h-full w-full object-cover"
+                loading="lazy"
+                width={400}
+                height={300}
+              />
+            </a>
+          </div>
+          <div class="md:w-2/3">
+            <div class="flex flex-col gap-4">
               <a
                 href={project.data.live_url ? project.data.live_url : '/portfolio/' + project.id}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block overflow-hidden"
+                class="group"
               >
-                <Image
-                  src={project.featuredImage}
-                  alt={`${project.data.title} project screenshot`}
-                  class="h-full w-full object-cover"
-                  loading="lazy"
-                  width={400}
-                  height={300}
-                />
+                <h3 class="text-lg font-bold text-gray-900 sm:text-2xl">{project.data.title}</h3>
               </a>
-            </div>
-            <div class="md:w-2/3">
-              <div class="flex flex-col gap-4">
-                <a
-                  href={project.data.live_url ? project.data.live_url : '/portfolio/' + project.id}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group"
-                >
-                  <h3 class="text-lg font-bold text-gray-900 sm:text-2xl">{project.data.title}</h3>
-                </a>
 
-                <div class="text-primary-600 text-sm font-bold">
-                  {(project.data.company || '').toUpperCase()} | {(project.data.pub_date || '').toUpperCase()}
-                </div>
-
-                <p>{project.data.description}</p>
-                <p>{project.data.responsibilities}</p>
-                {/* PROJECT TAGS */}
-                {project.data.project_tags && (
-                  <div class="flex flex-wrap gap-2">
-                    {project.data.project_tags.split(',').map((tag) => (
-                      <span class="font-large dark:text-primary-300 rounded-full py-1 text-sm text-neutral-600">
-                        {tag.trim()},
-                      </span>
-                    ))}
-                  </div>
-                )}
+              <div class="text-primary-600 text-sm font-bold">
+                {(project.data.company || '').toUpperCase()} | {(project.data.pub_date || '').toUpperCase()}
               </div>
+
+              <p class="text-sm">{project.data.description}</p>
+              <p class="text-sm">{project.data.responsibilities}</p>
+              {/* PROJECT TAGS */}
+              {project.data.project_tags && (
+                <div class="flex flex-wrap gap-2">
+                  {project.data.project_tags.split(',').map((tag) => (
+                    <span class="font-large dark:text-primary-300 rounded-full py-1 text-sm text-neutral-600">
+                      {tag.trim()},
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
-          </article>
-        ))
-      }
-      <div class="mt-12 grid place-content-center">
-        <Pagination
-          firstPage={page.url.prev ? '/portfolio' : null}
-          previousPage={page.url.prev ? page.url.prev : null}
-          nextPage={page.url.next ? page.url.next : null}
-          lastPage={page.url.next ? `/portfolio/${Math.ceil(page.total / page.size)}` : null}
-          currentPage={`${page.currentPage}`}
-          totalPages={`${Math.ceil(page.total / page.size)}`}
-          ariaLabel="Portfolio pagination"
-        />
-      </div>
+          </div>
+        </article>
+      ))
+    }
+    <div class="mt-12 grid place-content-center">
+      <Pagination
+        firstPage={page.url.prev ? '/portfolio' : null}
+        previousPage={page.url.prev ? page.url.prev : null}
+        nextPage={page.url.next ? page.url.next : null}
+        lastPage={page.url.next ? `/portfolio/${Math.ceil(page.total / page.size)}` : null}
+        currentPage={`${page.currentPage}`}
+        totalPages={`${Math.ceil(page.total / page.size)}`}
+        ariaLabel="Portfolio pagination"
+      />
     </div>
   </section>
 </DefaultLayout>
