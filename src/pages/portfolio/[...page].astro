@@ -86,8 +86,9 @@ const totalPages = Math.ceil(page.total / page.size)
                 alt={`${project.data.title} project screenshot`}
                 class="h-full w-full object-cover"
                 loading="lazy"
-                width={400}
-                height={300}
+                width={800}
+                height={600}
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </a>
           </div>
