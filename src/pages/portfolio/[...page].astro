@@ -107,10 +107,8 @@ const totalPages = Math.ceil(page.total / page.size)
                   {(project.data.company || '').toUpperCase()} | {(project.data.pub_date || '').toUpperCase()}
                 </div>
 
-                <p class="text-base leading-relaxed text-gray-700 dark:text-neutral-300">{project.data.description}</p>
-                <p class="text-base leading-relaxed text-gray-700 dark:text-neutral-300">
-                  {project.data.responsibilities}
-                </p>
+                <p>{project.data.description}</p>
+                <p>{project.data.responsibilities}</p>
                 {/* PROJECT TAGS */}
                 {project.data.project_tags && (
                   <div class="flex flex-wrap gap-2">
