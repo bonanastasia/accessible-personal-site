@@ -15,18 +15,23 @@ interface Props {
    * The title to display
    */
   title: string
+
+  href: string
+
+  description: string
 }
 
-const { icon = 'mdi:rocket', title = 'Title' }: Props = Astro.props
+const { icon = '', title = 'Title', href = '#', description = 'Description' }: Props = Astro.props
 ---
 
 <div class="feature flex flex-col gap-4">
-  <Icon name={icon} />
+  {icon ? <Icon name={icon} /> : ''}
   <div class="content">
     <h3 class="text-2xl font-bold">{title}</h3>
     <p>
-      <slot>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.</slot>
+      <slot>{description}</slot>
     </p>
+    <a class="button my-8" href={href} target="_blank"> Go To Project </a>
   </div>
 </div>
 
@@ -56,10 +61,10 @@ const { icon = 'mdi:rocket', title = 'Title' }: Props = Astro.props
     &::before {
       z-index: 1;
       inset: 0;
-      box-shadow: 0 0 0 6px var(--color-neutral-100);
+      box-shadow: 0 0 0 6px var(--color-neutral-200);
       border: 3px solid var(--color-neutral-700);
       border-radius: var(--radius-l);
-      background-color: var(--color-neutral-100);
+      background-color: var(--color-neutral-200);
     }
 
     &::after {

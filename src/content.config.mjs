@@ -16,6 +16,8 @@ const projects = defineCollection({
     company: z.string().optional(),
     pub_date: z.string().optional(),
     project_tags: z.string().optional(),
+    order: z.number().optional(),
+    image: z.string().optional(),
   }),
 })
 

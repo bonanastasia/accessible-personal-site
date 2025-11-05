@@ -3,55 +3,33 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import PageHeader from '@components/PageHeader.astro'
 import { Pagination } from 'accessible-astro-components'
 import { getCollection } from 'astro:content'
-import { Image } from 'astro:assets'
 import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
 
-// Import images directly for optimization
-import projectImage0 from '@assets/images/projects/TechHive_analysis.png'
-import projectImage1 from '@assets/images/projects/intro-to-git.png'
-import projectImage2 from '@assets/images/projects/principal-tracker.png'
-import projectImage3 from '@assets/images/projects/teacher-salary-project-new.png'
-// import projectImage5 from '@assets/images/projects/CAR-explainer.png'
+// No need to import images individually anymore - they're defined in each project's frontmatter
 
 export const getStaticPaths = (async ({ paginate }) => {
   const projects = await getCollection('projects')
 
-  // Sort projects by pub_date (newest first), then by title if dates are the same
+  // Sort projects by custom order field (lowest first), then by title if no order is set
   const sortedProjects = projects.sort((a, b) => {
-    const dateA = new Date(a.data.pub_date || '1900-01-01')
-    const dateB = new Date(b.data.pub_date || '1900-01-01')
+    const orderA = a.data.order ?? 999 // Default to 999 if no order is set
+    const orderB = b.data.order ?? 999
 
-    // Sort by date descending (newest first)
-    if (dateB.getTime() !== dateA.getTime()) {
-      return dateB.getTime() - dateA.getTime()
+    // Sort by order ascending (lowest first)
+    if (orderA !== orderB) {
+      return orderA - orderB
     }
 
-    // If dates are the same, sort by title ascending
+    // If orders are the same (or both undefined), sort by title ascending
     return a.data.title.localeCompare(b.data.title)
   })
 
-  const projectImages = [
-    projectImage0,
-    projectImage1,
-    projectImage2,
-    projectImage3,
-    // projectImage4,
-    // projectImage5
-  ]
-
-  const projectsWithImages = sortedProjects.map((project, index) => {
-    return {
-      ...project,
-      featuredImage: projectImages[index % projectImages.length],
-    }
-  })
-
-  return paginate(projectsWithImages, { pageSize: 6 })
+  return paginate(sortedProjects, { pageSize: 6 })
 }) satisfies GetStaticPaths
 
 interface Props {
-  page: Page<CollectionEntry<'projects'> & { featuredImage: any }>
+  page: Page<CollectionEntry<'projects'>>
 }
 
 const { page } = Astro.props
@@ -83,15 +61,18 @@ const totalPages = Math.ceil(page.total / page.size)
               rel="noopener noreferrer"
               class="block overflow-hidden"
             >
-              <Image
-                src={project.featuredImage}
-                alt={`${project.data.title} project screenshot`}
-                class="h-full w-full object-cover"
-                loading="lazy"
-                width={800}
-                height={600}
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
+              {project.data.image ? (
+                <img
+                  src={project.data.image}
+                  alt={`${project.data.title} project screenshot`}
+                  class="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="flex h-full w-full items-center justify-center bg-gray-200 text-gray-500">
+                  No image available
+                </div>
+              )}
             </a>
           </div>
           <div class="md:w-2/3">
