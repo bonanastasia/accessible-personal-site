@@ -19,9 +19,11 @@ interface Props {
   href: string
 
   description: string
+
+  tags: string
 }
 
-const { icon = '', title = 'Title', href = '#', description = 'Description' }: Props = Astro.props
+const { icon = '', title = 'Title', href = '#', description = 'Description', tags = '' }: Props = Astro.props
 ---
 
 <div class="feature flex flex-col gap-4">
@@ -31,7 +33,19 @@ const { icon = '', title = 'Title', href = '#', description = 'Description' }: P
     <p>
       <slot>{description}</slot>
     </p>
-    <a class="button my-8" href={href} target="_blank"> Go To Project </a>
+    {/* PROJECT TAGS */}
+    {
+      tags && (
+        <div class="my-4 flex flex-wrap gap-2">
+          {/* {tags.split(',').map((tag) => ( */}
+          <span class="project-tag font-large dark:text-primary-300 rounded-full py-1 text-sm text-neutral-600">
+            {tags.trim()}
+          </span>
+          {/* ))} */}
+        </div>
+      )
+    }
+    <a class="button" href={href} target="_blank"> Go To Project </a>
   </div>
 </div>
 
@@ -84,5 +98,14 @@ const { icon = '', title = 'Title', href = '#', description = 'Description' }: P
   :global(.darkmode .feature::before) {
     box-shadow: 0 0 0 6px var(--color-neutral-900);
     background-color: var(--color-neutral-900);
+  }
+
+  .project-tag {
+    // border-width: 2px;
+    border-color: var(--color-neutral-500);
+    // background-color: var(--color-red-50);
+    // padding: 0.25rem 0.75rem;
+    color: var(--color-neutral-500);
+    font-weight: 600;
   }
 </style>

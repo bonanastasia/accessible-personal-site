@@ -2,10 +2,6 @@
 import DefaultLayout from '@layouts/DefaultLayout.astro'
 import Hero from '@components/Hero.astro'
 import Feature from '@components/Feature.astro'
-import Counter from '@components/Counter.astro'
-import ContentMedia from '@components/ContentMedia.astro'
-import ExternalLink from '@components/ExternalLink.astro'
-import { Accordion, AccordionItem, Avatar, AvatarGroup } from 'accessible-astro-components'
 ---
 
 <DefaultLayout title="Home">
@@ -17,15 +13,17 @@ import { Accordion, AccordionItem, Avatar, AvatarGroup } from 'accessible-astro-
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-2">
         <Feature
           icon="lucide:chart-area"
-          title="Ecommerce data analysis"
+          title="E-commerce Sales Analysis"
           href="https://github.com/bonanastasia/TechHive_Retail_Analysis"
-          description="A SQL and Python analysis of six years of e-commerce data for a consumer electronics retailer. The project explores sales, product, and customer trends to uncover drivers of growth, loyalty, and revenue performance."
+          description="TechHive is a global electronics company serving customers across 8 countries and 4 major regions. This analysis explores comprehensive data from 294K+ transactions to identify trends, customer behaviors, and growth opportunities for the company."
+          tags="SQL, Python, Data Visualization"
         />
         <Feature
           icon="lucide:funnel"
-          title="Customer funnel analysis"
+          title="Customer Funnel Analysis"
           href="https://github.com/bonanastasia/GreenLeaf_Funnel_Analysis"
-          description="A Python-based funnel analysis for a mid-sized online retailer of plants and outdoor decor. Using Pandas and visual analytics, the project uncovers key drop-offs in the customer journey and models how improving conversions could increase annual revenue."
+          description="Greenleaf Market is a mid-sized online plants and outdoor decor retailer. This in-depth funnel analysis uncovers key drop-offs in the customer journey and models how improving conversions could increase annual revenue by $300k."
+          tags="Python, Plotly, Customer Journey"
         />
       </div>
     </div>
